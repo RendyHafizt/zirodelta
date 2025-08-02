@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zirodelta Solver</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            width: 280px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #solverUI button {
+            width: 48%;
+        }
+
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #log {
+            margin-top: 15px;
+            padding: 8px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            font-size: 14px;
+            word-wrap: break-word;
+            min-height: 30px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Zirodelta Riddle Solver</h3>
+
+    <div id="codeEntryUI">
+        <label for="specialCode">Masukkan Kode Spesial:</label>
+        <input type="text" id="specialCode" placeholder="Contoh: ZDLT-ALPHA-123">
+        <button id="submitCodeButton">Gunakan Kode</button>
+    </div>
+
+    <div id="solverUI" class="hidden">
+        <button id="startButton">Tunjukkan Posisi</button>
+        <button id="stopButton">Sembunyikan</button>
+    </div>
+
+    <div id="log">Masukkan kode untuk memulai.</div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
