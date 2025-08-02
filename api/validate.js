@@ -342,16 +342,18 @@ const VALID_CODES = [
 // Fungsi utama yang akan dijalankan oleh Vercel
 export default function handler(request, response) {
     // Izinkan extension Anda untuk berkomunikasi dengan server ini (CORS Headers)
+    // Ini penting agar browser tidak memblokir permintaan
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-    // Handle permintaan OPTIONS (browser akan mengirim ini terlebih dahulu)
+    // **BAGIAN BARU:** Handle permintaan 'OPTIONS' dari browser
+    // Jika browser mengirim permintaan OPTIONS, kita cukup jawab "OK"
     if (request.method === 'OPTIONS') {
         return response.status(200).end();
     }
     
-    // Pastikan hanya metode POST yang diizinkan
+    // Pastikan hanya metode POST yang diizinkan untuk validasi
     if (request.method !== 'POST') {
         return response.status(405).json({ message: 'Method not allowed' });
     }
